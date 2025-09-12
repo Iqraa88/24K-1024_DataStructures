@@ -59,18 +59,41 @@ class LibCatalog{
         }
     }
     
-    bool searchBook(string bookTitle){
+    void searchBook(string bookTitle){
     
         temp= head;
+        bool found= false;
         while(temp!=NULL){
         
             if(temp->bookName== bookTitle){
             
-                return true;
+                cout<<" Book found: "<< temp->bookName<<" (:)"<<endl;
+                found= true;
+                
             }
             temp= temp->next;
         }
-        return false;
+        if(!found){
+        cout<<"Couldn't find Book!"<<endl;
+        }
+    }
+
+    void searchByPos(int pos){
+    
+        int count=1;
+        temp= head;
+        while(temp!=NULL){
+            if(count==pos){
+            
+                cout<<"Book Found: "<<temp->bookName<< " (:)"<<endl;
+                return;
+            }
+            temp=temp->next;
+            count++;
+        }
+
+        cout<<"Unable to find book at your entered position/ Invalid Position!"<<endl;
+    
     }
 
     void displayCatalog(){
@@ -117,10 +140,11 @@ int main()
     cout<<"Enter Book Name you want to search for: "<<endl;
     getline(cin, Bookname);
 
-    if(c1.searchBook(Bookname)){
-        cout<<"Your Book was found!"<<endl;
-    }
-    else{cout<<"Sorry! Couldn't find book!";}
+    c1.searchBook(Bookname);
+    
+    c1.searchByPos(3);
+
+    
 
     
 
