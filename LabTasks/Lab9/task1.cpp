@@ -137,7 +137,7 @@ int main() {
 
    
     tree.root = tree.insert(tree.root, 15);
-
+    cout<<"The height will be: "<< tree.height(tree.root)<< " "<<endl;
     cout << "Inorder after inserting 15: ";
     tree.inorder(tree.root);
     cout << endl;
